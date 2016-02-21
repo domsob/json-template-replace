@@ -65,14 +65,14 @@ A special JSON object where the replacements are defined. This object will be ex
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the default options are used. Thus, no replacements are defined and the task executes a simple concatenation of files. In this example it concatenates `header.html` and `template.html`. The combined file is `default_options.html`.
 
 ```js
 grunt.initConfig({
-  json_template_replace: {
+  'json-template-replace': {
     options: {},
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      'dest/default_options.html': ['src/header.html', 'src/template.html']
     },
   },
 });
