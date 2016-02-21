@@ -99,3 +99,39 @@ grunt.initConfig({
   },
 });
 ```
+
+#### Extended Configuration
+In this extended example all occurrences of `###title###`, `###content###` and `###footer###` are replaced by the defined values in the `replace` object (like in the simple configuration example). Furthermore, not only simple strings are supported: it is possible to define JSON sub-objects containing code snippets or references to code snippets.
+
+The code snippets or file references have to be defined in the `snippet` field. If the value is a filepath, the flag `isFile` must be `true`. The `items` field contains an array of JSON objects (only a simple key/value structure is supported now). The task iterates over the `items` array and replaces the placeholders in the associated code snippet. The snippets are copied and concatenated for each object in the `items` array.
+
+The fields `isFile` (the default value here is `false`) and `items` are optional. Therefore, it is possible include code snippets like an HTML header or footer.
+
+```js
+grunt.initConfig({
+  'json-template-replace': {
+      custom_options: {
+        options: {
+          replace: {
+            'title': 'This is the title',
+            'navigation': {
+              'snippet': 'src/include.html',
+              'isFile': true,
+              'items': [{'naviitem': 'Item 1'}, {'naviitem': 'Item 2'}]
+            },
+            'content': 'Lorem ipsum.',
+            'list': {
+              'snippet': '<li>###listitem###</li>',
+              'isFile': false,
+              'items': [{'listitem': 'Item 1'}, {'listitem': 'Item 2'}, {'listitem': 'Item 3'}]
+            },
+            'footer': 'Copyright (c) 2016'
+          }
+        },
+        files: {
+          'dest/extended_configuration.html': ['src/template.html']
+        }
+      }
+    },
+});
+```
