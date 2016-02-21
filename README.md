@@ -55,7 +55,7 @@ Default value: `'###'`
 
 A string value that is used as suffix of every placeholder.
 
-#### options.suffix
+#### options.replace
 Type: `Object`
 Default value: `{}`
 
