@@ -17,14 +17,14 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('json-template-replace');
 ```
 
-## The "json_template_replace" task
+## The "json-template-replace" task
 
 ### Overview
-In your project's Gruntfile, add a section named `json_template_replace` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `json-template-replace` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  json_template_replace: {
+  'json-template-replace': {
     options: {
       // Task-specific options go here.
     },
@@ -39,15 +39,28 @@ grunt.initConfig({
 
 #### options.separator
 Type: `String`
-Default value: `',  '`
+Default value: `''`
 
-A string value that is used to do something with whatever.
+A string value that is used between concatenated files.
 
-#### options.punctuation
+#### options.prefix
 Type: `String`
-Default value: `'.'`
+Default value: `'###'`
 
-A string value that is used to do something else with whatever else.
+A string value that is used as prefix of every placeholder.
+
+#### options.suffix
+Type: `String`
+Default value: `'###'`
+
+A string value that is used as suffix of every placeholder.
+
+#### options.suffix
+Type: `Object`
+Default value: `{}`
+
+A special JSON object where the replacements are defined. This object will be explained in detail in the following sections.
+
 
 ### Usage Examples
 
@@ -81,9 +94,3 @@ grunt.initConfig({
   },
 });
 ```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
