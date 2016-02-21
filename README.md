@@ -105,7 +105,7 @@ In this extended example all occurrences of `###title###`, `###content###` and `
 
 The code snippets or file references have to be defined in the `snippet` field. If the value is a filepath, the flag `isFile` must be `true`. The `items` field contains an array of JSON objects (only a simple key/value structure is supported now). The task iterates over the `items` array and replaces the placeholders in the associated code snippet. The snippets are copied and concatenated for each object in the `items` array. In this example the snippets are replacements for `###navigation###` and `###list###` in the end. 
 
-The fields `isFile` (the default value here is `false`) and `items` are optional. Therefore, it is possible include code snippets like an HTML header or footer even without replacements.
+The fields `isFile` (the default value here is `false`) and `items` are optional. Therefore, it is possible to include code snippets like an HTML header or footer even without replacements.
 
 ```js
 grunt.initConfig({
@@ -157,7 +157,7 @@ It is easier to understand the plugin with concrete examples. The following HTML
 </html>
 ```
 
-After the replacements the file (`extended_configuration.html`) looks like this:
+After the replacements the file `extended_configuration.html` looks like this:
 
 ```html
 <html>
