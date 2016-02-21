@@ -103,9 +103,9 @@ grunt.initConfig({
 #### Extended Configuration
 In this extended example all occurrences of `###title###`, `###content###` and `###footer###` are replaced by the defined values in the `replace` object (like in the simple configuration example). Furthermore, not only simple strings are supported: it is possible to define JSON sub-objects containing code snippets or references to code snippets.
 
-The code snippets or file references have to be defined in the `snippet` field. If the value is a filepath, the flag `isFile` must be `true`. The `items` field contains an array of JSON objects (only a simple key/value structure is supported now). The task iterates over the `items` array and replaces the placeholders in the associated code snippet. The snippets are copied and concatenated for each object in the `items` array.
+The code snippets or file references have to be defined in the `snippet` field. If the value is a filepath, the flag `isFile` must be `true`. The `items` field contains an array of JSON objects (only a simple key/value structure is supported now). The task iterates over the `items` array and replaces the placeholders in the associated code snippet. The snippets are copied and concatenated for each object in the `items` array. In this example the snippets are replacements for `###navigation###` and `###list###` in the end. 
 
-The fields `isFile` (the default value here is `false`) and `items` are optional. Therefore, it is possible include code snippets like an HTML header or footer.
+The fields `isFile` (the default value here is `false`) and `items` are optional. Therefore, it is possible include code snippets like an HTML header or footer even without replacements.
 
 ```js
 grunt.initConfig({
@@ -134,4 +134,46 @@ grunt.initConfig({
       }
     },
 });
+```
+
+It is easier to understand the plugin with concrete examples. The following HTML code snippet is the content of the `template.html` file before all replacements:
+
+```html
+<html>
+  <head>
+    <title>###title###</title>
+  </head>
+  <body>
+    <h1>###title###</h1>
+    <ul class="navigation">
+      ###navigation###
+    </ul>
+    <p>###content###</p>
+    <ul>
+      ###list###
+    </ul>
+    <p>###footer###</p>
+  </body>
+</html>
+```
+
+After the replacements the file (`extended_configuration.html`) looks like this:
+
+```html
+<html>
+  <head>
+    <title>This is the title</title>
+  </head>
+  <body>
+    <h1>This is the title</h1>
+    <ul class="navigation">
+      <li>Item 1</li><li>Item 2</li>
+    </ul>
+    <p>Lorem ipsum.</p>
+    <ul>
+      <li>Item 1</li><li>Item 2</li><li>Item 3</li>
+    </ul>
+    <p>Copyright (c) 2016</p>
+  </body>
+</html>
 ```
