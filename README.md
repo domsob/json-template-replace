@@ -65,7 +65,7 @@ A special JSON object where the replacements are defined. This object will be ex
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used. Thus, no replacements are defined and the task executes a simple concatenation of files. In this example it concatenates `header.html` and `template.html`. The combined file is `default_options.html`.
+In this example, the default options are used. Thus, no replacements are defined and the task executes a simple concatenation of files. In this example the task concatenates `header.html` and `template.html`. The combined file is `default_options.html`.
 
 ```js
 grunt.initConfig({
@@ -78,19 +78,24 @@ grunt.initConfig({
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+#### Simple Configuration
+In this example the task combines the files `header.html` and `template.html` to `simple_configuration.html`. In addition to that, all occurrences of `###title###`, `###content###` and `###footer###` are replaced by the defined values in the `replace` object.
 
 ```js
 grunt.initConfig({
-  json_template_replace: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+  'json-template-replace': {
+    custom_options: {
+      options: {
+        replace: {
+          'title': 'This is the title',
+          'content': 'Lorem ipsum.',
+          'footer': 'Copyright (c) 2016'
+        }
+      },
+      files: {
+        'dest/simple_configuration.html': ['src/header.html', 'src/template.html']
+      }
+    }
   },
 });
 ```
