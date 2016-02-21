@@ -1,7 +1,7 @@
 {
   "name": "json-template-replace",
-  "description": "This Grunt plugin allows you to replace placeholders defined in a template-like JSON object to guarantee the separation of content and code.",
-  "version": "0.1.0",
+  "description": "This Grunt plugin allows you to replace adjustable placeholders defined in a JSON object to guarantee the separation of content and code.",
+  "version": "0.1.1",
   "homepage": "https://github.com/domsob/json-template-replace",
   "author": {
     "name": "Dominik Sobania",
@@ -33,6 +33,6 @@
     "grunt": "~0.4.5"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin", "json", "string", "replace", "template", "text", "placeholder", "snippet"
   ]
 }
